@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-lg mx-auto bg-white p-6 rounded shadow text-center">
+    <h1 class="text-2xl font-bold mb-4">Transaction Complete ✅</h1>
+    <p class="mb-6">Your transaction has been recorded.</p>
+
+    <a href="{{ url_for('generate_receipt_pdf') }}"
+   class="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800">
+   Download PDF Receipt
+</a>
+
+    <br><br>
+    <a href="/" class="text-blue-600 underline">← Back to Dashboard</a>
+  </div>
+</body>
+</html>

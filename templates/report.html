@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Inventory Reports</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-8 bg-gray-100 text-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">Inventory Reports</h1>
+
+    <a href="{{ url_for('index') }}" class="mb-4 inline-block text-blue-600 hover:underline">← Back to Dashboard</a>
+
+
+    <!-- Sales -->
+    <h2 class="text-2xl font-semibold mb-2">Sales Report</h2>
+    <table class="min-w-full bg-white rounded shadow">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="py-2 px-4">ID</th>
+          <th class="py-2 px-4">Product ID</th>
+          <th class="py-2 px-4">Quantity Sold</th>
+          <th class="py-2 px-4">Price</th>
+          <th class="py-2 px-4">Date</th>
+          <th class="py-2 px-4">Total </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sale in sales %}
+        <tr class="border-b">
+          <td class="py-2 px-4">{{ sale.id }}</td>
+          <td class="py-2 px-4">{{ sale.product_id }}</td>
+          <td class="py-2 px-4">{{ sale.quantity }}</td>
+          <td class="py-2 px-4">₦{{ "%.2f"|format(sale.price) }}</td>
+          <td class="py-2 px-4">{{ sale.date }}</td>
+          <td class="py-2 px-4">₦{{ "%.2f"|format(sale.quantity * sale.price) }}</td>
+
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
